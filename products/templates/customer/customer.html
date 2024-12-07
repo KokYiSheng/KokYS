@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'customer/customer.css' %}">
+    <title>Our Products</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Welcome to Switch Store</h1>
+        </div>
+    </header>
+    
+    <div class="product-container">
+        {% if products %}
+            {% for product in products %}
+                <div class="product-card">
+                    <div class="product-image">
+                        {% if product.image %}
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                        {% else %}
+                            <img src="{% static 'products/default-product.png' %}" alt="No Image Available">
+                        {% endif %}
+                    </div>
+                    <div class="product-info">
+                        <h3>{{ product.name }}</h3>
+                        <p class="product-price">${{ product.price }}</p>
+                        <a href="#" class="btn product-details-btn">View Details</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No products available at the moment.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

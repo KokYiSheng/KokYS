@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'products/dashboard.css' %}">
+    <title>Product Management Dashboard</title>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Product Management Dashboard</h1>
+
+        <!-- Search Form -->
+        <form method="GET" action="{% url 'product_dashboard' %}" class="search-form">
+            <input type="text" name="q" placeholder="Search products by name..." value="{{ query }}">
+            <button type="submit" class="btn search-btn">Search</button>
+        </form>
+
+        <!-- Add Product Button aligned to the right -->
+        <div class="button-container">
+            <a href="{% url 'product_create' %}" class="btn add-product-btn">Add New Product</a>
+        </div>
+
+        <!-- Product Table -->
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Product Image</th>
+                    <th>Product Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Stock Quantity</th>
+                    <th>Color</th>
+                    <th>Availability</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if products %}
+                    {% for product in products %}
+                        <tr>
+                            <td>
+                                {% if product.image %}
+                                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+                                {% else %}
+                                    No Image
+                                {% endif %}
+                            </td>
+                            <td>{{ product.name }}</td>
+                            <td>{{ product.description }}</td>
+                            <td>${{ product.price }}</td>
+                            <td>{{ product.stock }}</td>
+                            <td>{{ product.color }}</td>
+                            <td>{{ product.availability|yesno:"Available,Not Available" }}</td>
+                            <td>
+                                <a href="{% url 'product_update' product.pk %}" class="btn edit-btn">Edit</a>
+                                <a href="{% url 'product_delete' product.pk %}" class="btn delete-btn">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="8">No products found.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'products/deleteProduct.css' %}">
+    <title>Delete Product</title>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Confirm Deletion</h2>
+        <p>Are you sure you want to delete "{{ product.name }}"?</p>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn delete-btn">Yes, Delete</button>
+            <a href="{% url 'product_dashboard' %}" class="btn">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

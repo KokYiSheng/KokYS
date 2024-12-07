@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.dashboard-container {
+    width: 90%;
+    margin: auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-form input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+}
+
+.search-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #0056b3;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.add-product-btn {
+    background-color: #007bff;
+    padding: 15px 25px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-product-btn:hover {
+    background-color: #0056b3;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.product-table th,
+.product-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.product-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.product-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.product-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.product-image {
+    width: 100px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 10px 20px;  /* Increased padding */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;  /* Increased font size */
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+    background-color: #28a745;  /* Green for edit */
+    margin-right: 10px;
+}
+
+.edit-btn:hover {
+    background-color: #218838;  /* Darker green on hover */
+}
+
+.delete-btn {
+    background-color: #dc3545;  /* Red for delete */
+}
+
+.delete-btn:hover {
+    background-color: #c82333;  /* Darker red on hover */
+}
